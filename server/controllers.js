@@ -2,8 +2,9 @@ var router = require('./routes.js');
 var request = require('request');
 var bluebird = require('bluebird');
 var _ = require('underscore');
+var apiKey = require('../apiKey')
 
-var searchUrl = 'https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJN1t_tDeuEmsRUsoyG83frY4&key=AIzaSyAeS6Qgpzy05XlEW2u02MHgpv8OXLLH6ZE';
+var searchUrl = 'https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJN1t_tDeuEmsRUsoyG83frY4&key=' + apiKey;
 
 
 module.exports = {
@@ -19,6 +20,9 @@ module.exports = {
 						return item.text;
 					})
 					newArray = newArray.join(' ').toLowerCase().split(' ')
+					newArray = _.map(newArray, function(item) {
+						return item.replace(/[^a-z]/gi, '')
+					})
 					console.log(newArray);
 				}
 				res.status(200).send(newArray);
@@ -28,8 +32,8 @@ module.exports = {
 			// 	res.status(200).send(newArray);
 			// })
 		},
-		// getPlace: function(req, res) {
-				
-		// }
+		getPlace: function(req, res) {
+
+		}
 	}
 }
