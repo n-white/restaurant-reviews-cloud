@@ -1,0 +1,1 @@
+"Picking out a restaurant for dinner can be tedious. You probably rely on the star rating and location to make your decision. The written reviews can be more telling, but it's tiring to scan through them. With this app, you can plug in the name of the restaurant and it will give you a word cloud of the reviews so you can get a quick idea of what the restaurant has to offer."
