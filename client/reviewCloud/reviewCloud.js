@@ -1,10 +1,16 @@
 // var _ = require('underscore');
 
-angular.module('reviewCloudApp.reviewCloud', [])
-	.controller('ReviewCloudController', function($scope, $state, $http) {
+angular.module('reviewCloudApp.reviewCloud', ['reviewCloudApp.searchPlaces'])
+	.controller('ReviewCloudController', function($scope, $state, $http, searchId) {
 		$scope.reviewsArray = [];
 		$scope.noDuplicates;
 		$scope.removeWords = ['youd', 'their', 'theirs']
+		$scope.currentId = null;
+		/////////
+		$scope.getCurrentId = function() {
+			$scope.getWords(searchId.getId());
+		}
+		/////////
 		$scope.indexOf = function(collection, target) {
 			for (var i = 0; i < collection.length; i++) {
 				if (collection[i] === target) {

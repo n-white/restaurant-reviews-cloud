@@ -18,9 +18,8 @@
   <br>
   <br>
 
-	<div class="col-lg-6 col-lg-offset-3" ng-repeat="place in placesArray.data">
-		<ul>
-			<li>{{ "name: " + place.name + "| id: " + place.id}}</li>
-		</ul>
-	</div>
+  <ul>
+			<li class="col-lg-6 col-lg-offset-3" ng-repeat="place in placesArray.data" ng-click="updateId(place.id)">{{ "name: " + place.name + "| id: " + place.id}}</li>
+  </ul>
+
 </div>
