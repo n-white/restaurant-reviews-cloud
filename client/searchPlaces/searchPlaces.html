@@ -1,7 +1,7 @@
 <div>
-	<h1>search for a place</h1>
 
-	<div class="col-lg-6">
+	<div class="col-lg-6 col-lg-offset-3">
+		<h1 class="col-lg-offset-3">search for a place</h1>
     <div class="input-group">
       <span class="input-group-btn">
         <button class="btn btn-default" type="button" ng-click="getPlaces(searchTerm)">Go!</button>
@@ -13,8 +13,12 @@
   <br>
   <br>
   <br>
+  <br>
+  <br>
+  <br>
+  <br>
 
-	<div ng-repeat="place in placesArray.data">
+	<div class="col-lg-6 col-lg-offset-3" ng-repeat="place in placesArray.data">
 		<ul>
 			<li>{{ "name: " + place.name + "| id: " + place.id}}</li>
 		</ul>

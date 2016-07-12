@@ -13,6 +13,7 @@ angular.module('reviewCloudApp.reviewCloud', [])
 			}
 			return -1;
 		}
+		
 		$scope.getWords = function(searchTerm) {
 			console.log('get words invoked')
 			$http({
@@ -26,8 +27,6 @@ angular.module('reviewCloudApp.reviewCloud', [])
 				console.log($scope.noDuplicates);	
 			})
 		}
-
-		$scop
 
 		$scope.eliminateDuplicates = function(array) {
 			var newObj = {};
