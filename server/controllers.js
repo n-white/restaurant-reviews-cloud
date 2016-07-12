@@ -5,17 +5,20 @@ var _ = require('underscore');
 var apiKey = require('../apiKey')
 
 var options = 'location=-33.8670522,151.1957362&radius=500&type=restaurant&name='
-var reviewWordsUrl = 'https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJN1t_tDeuEmsRUsoyG83frY4&key='
+var reviewWordsUrl = 'https://maps.googleapis.com/maps/api/place/details/json?placeid='
 var placeSearchUrl = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?'
 
+var deleteThisLater = 'ChIJN1t_tDeuEmsRUsoyG83frY4'
 
 module.exports = {
 	reviewSearch: {
 		getReviewWords: function(req, res) {
 			// console.log('get place is working')
+			// var searchTerm = JSON.parse(req.body.key);
+			// console.log('LOOK HERE' + reviewWordsUrl + JSON.parse(req.body.key) + '&key=' + apiKey);
 			var rawReviewArray;
 			
-			request(reviewWordsUrl + apiKey, function(error, response, body) {
+			request(reviewWordsUrl + JSON.parse(req.body.key) + '&key=' + apiKey, function(error, response, body) {
 				if (!error && response.statusCode == 200) {
 					rawReviewArray = JSON.parse(body).result.reviews;
 					var newArray = _.map(rawReviewArray, function(item) {
@@ -25,14 +28,10 @@ module.exports = {
 					newArray = _.map(newArray, function(item) {
 						return item.replace(/[^a-z]/gi, '')
 					})
-					console.log(newArray);
+					// console.log(newArray);
 					res.status(200).send(newArray);
 				}
 			})
-			// .then(function(data) {
-			// 	console.log('139481-23947823');
-			// 	res.status(200).send(newArray);
-			// })
 		}
 	},
 

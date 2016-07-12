@@ -1,8 +1,8 @@
 <div>
 	<h1>generate a word cloud</h1>
-	<form ng-submit="getWords()">
-		<input placeholder="enter a keyword"></input>
-		<button>submit</button>
+	<form></form>>
+		<input placeholder="enter a keyword" ng-model="searchTerm"></input>
+		<button ng-click="getWords(searchTerm)">submit</button>
 	</form>
 
 	<div>

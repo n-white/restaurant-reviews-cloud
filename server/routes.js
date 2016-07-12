@@ -5,6 +5,6 @@ router.route('/place-search')
 	.post(controllers.placeSearch.getPlace);
 
 router.route('/review-cloud')
-	.get(controllers.reviewSearch.getReviewWords);
+	.post(controllers.reviewSearch.getReviewWords);
 
 module.exports = router;

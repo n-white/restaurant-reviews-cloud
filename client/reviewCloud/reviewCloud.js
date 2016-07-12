@@ -16,7 +16,7 @@ angular.module('reviewCloudApp.reviewCloud', [])
 		$scope.getWords = function(searchTerm) {
 			console.log('get words invoked')
 			$http({
-				method: 'GET',
+				method: 'POST',
 				url: 'http://localhost:3000/review-cloud',
 				data: {key: JSON.stringify(searchTerm)}
 			}).then(function(response) {
