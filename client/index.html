@@ -1,9 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Review Cloud</title>
+	<meta charset="utf-8" />
+	<title>Restaurant Review Cloud</title>
+
+	<script src="angular.js"></script>
+	<script src="angular-ui-router.min.js"></script>
+
+	<script src="app.js"></script>
+	<script src="searchPlaces/searchPlaces.js"></script>
+	<script src="reviewCloud/reviewCloud.js"></script>
+
 </head>
-<body>
+
+<body ng-app="reviewCloudApp">
+
+	<h1>Restaurant Reviews Word Cloud</h1>
+	<nav>
+		<a ui-sref="searchPlacesState">Search for a place</a>
+		<a ui-sref="reviewCloudState">Find the word cloud for a place</a>
+	</nav>
+
+	<div ui-view></div>
+
 
 </body>
 </html>

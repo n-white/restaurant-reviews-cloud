@@ -1,0 +1,13 @@
+<div>
+	<h1>search for a place</h1>
+	<form>
+		<input placeholder="enter a keyword" ng-model="searchTerm"></input>
+		<button ng-click="getPlaces(searchTerm)">submit</button>
+	</form>
+
+	<div ng-repeat="place in placesArray.data">
+		<ul>
+			<li>{{ "name: " + place.name + "| id: " + place.id}}</li>
+		</ul>
+	</div>
+</div>

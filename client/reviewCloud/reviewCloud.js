@@ -13,11 +13,12 @@ angular.module('reviewCloudApp.reviewCloud', [])
 			}
 			return -1;
 		}
-		$scope.getWords = function() {
+		$scope.getWords = function(searchTerm) {
 			console.log('get words invoked')
 			$http({
 				method: 'GET',
-				url: 'http://localhost:3000/review-cloud'
+				url: 'http://localhost:3000/review-cloud',
+				data: {key: JSON.stringify(searchTerm)}
 			}).then(function(response) {
 				// console.log(response);
 				$scope.reviewsArray = response;
