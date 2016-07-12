@@ -20,6 +20,7 @@ angular.module('reviewCloudApp.searchPlaces', [])
 		}
 	})
 	.factory('searchId', function() {
+		currentCloud = [];
 		currentId = {id: null};
 		idObj = {};
 		idObj.searchId = function(idValue) {
@@ -28,6 +29,12 @@ angular.module('reviewCloudApp.searchPlaces', [])
 		}
 		idObj.getId = function() {
 			return currentId.id;
+		}
+		idObj.setCloud = function(newCloud) {
+			currentCloud = newCloud;
+		}
+		idObj.getCloud = function() {
+			return currentCloud;
 		}
 		return idObj;
 	});

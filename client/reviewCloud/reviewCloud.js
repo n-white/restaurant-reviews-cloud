@@ -5,7 +5,7 @@ angular.module('reviewCloudApp.reviewCloud', ['reviewCloudApp.searchPlaces'])
 		$scope.reviewsArray = [];
 		$scope.noDuplicates;
 		$scope.removeWords = ['youd', 'their', 'theirs']
-		$scope.currentId = null;
+	
 		/////////
 		$scope.getCurrentId = function() {
 			$scope.getWords(searchId.getId());
@@ -36,12 +36,37 @@ angular.module('reviewCloudApp.reviewCloud', ['reviewCloudApp.searchPlaces'])
 
 		$scope.eliminateDuplicates = function(array) {
 			var newObj = {};
+			var newArr = [];
 			for (var i = 0; i < array.length; i++) {
 				if ($scope.indexOf($scope.removeWords, array[i]) === -1 && array[i].length > 3) {
-					newObj[array[i]] = newObj[array[i]] || 0;
-					newObj[array[i]] += 1;
+					newObj[array[i]] = newObj[array[i]] || {'text': array[i], 'size': 0};
+					newObj[array[i]].size += 1;
 				}
 			}
-			return newObj;
+			for (key in newObj) {
+				newArr.push(newObj[key]);
+			}
+			searchId.setCloud(newArr);
+			return searchId.getCloud();
 		}
+
+		// $scope.generateWordCloud = function(cloudObject) {
+
+
+
+
+		// }
+
+
 	});
+
+
+
+
+
+
+
+
+
+
+
