@@ -11,14 +11,16 @@
 	<script src="searchPlaces/searchPlaces.js"></script>
 	<script src="reviewCloud/reviewCloud.js"></script>
 
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
 </head>
 
 <body ng-app="reviewCloudApp">
 
-	<h1>Restaurant Reviews Word Cloud</h1>
-	<nav>
-		<a ui-sref="searchPlacesState">Search for a place</a>
-		<a ui-sref="reviewCloudState">Find the word cloud for a place</a>
+	<nav class="navbar navbar-default">
+		<div class="navbar-brand">Restaurant Reviews Word Cloud</div>
+		<button class="btn btn-default navbar-btn"><a ui-sref="searchPlacesState" class="active">Search for a place</a></button>
+		<button class="btn btn-default navbar-btn"><a ui-sref="reviewCloudState">Find the word cloud for a place</a></button>
 	</nav>
 
 	<div ui-view></div>

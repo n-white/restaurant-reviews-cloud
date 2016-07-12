@@ -26,6 +26,9 @@ angular.module('reviewCloudApp.reviewCloud', [])
 				console.log($scope.noDuplicates);	
 			})
 		}
+
+		$scop
+
 		$scope.eliminateDuplicates = function(array) {
 			var newObj = {};
 			for (var i = 0; i < array.length; i++) {
