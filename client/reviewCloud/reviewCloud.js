@@ -1,4 +1,38 @@
+// var _ = require('underscore');
+
 angular.module('reviewCloudApp.reviewCloud', [])
 	.controller('ReviewCloudController', function($scope, $state, $http) {
 		$scope.reviewsArray = [];
+		$scope.noDuplicates;
+		$scope.removeWords = ['youd', 'their', 'theirs']
+		$scope.indexOf = function(collection, target) {
+			for (var i = 0; i < collection.length; i++) {
+				if (collection[i] === target) {
+					return 1
+				}
+			}
+			return -1;
+		}
+		$scope.getWords = function() {
+			console.log('get words invoked')
+			$http({
+				method: 'GET',
+				url: 'http://localhost:3000/review-cloud'
+			}).then(function(response) {
+				// console.log(response);
+				$scope.reviewsArray = response;
+				$scope.noDuplicates = $scope.eliminateDuplicates(response.data);
+				console.log($scope.noDuplicates);	
+			})
+		}
+		$scope.eliminateDuplicates = function(array) {
+			var newObj = {};
+			for (var i = 0; i < array.length; i++) {
+				if ($scope.indexOf($scope.removeWords, array[i]) === -1 && array[i].length > 3) {
+					newObj[array[i]] = newObj[array[i]] || 0;
+					newObj[array[i]] += 1;
+				}
+			}
+			return newObj;
+		}
 	});

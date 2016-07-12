@@ -1,3 +1,13 @@
 <div>
-	<h1>review cloud</h1>
+	<h1>generate a word cloud</h1>
+	<form ng-submit="getWords()">
+		<input placeholder="enter a keyword"></input>
+		<button>submit</button>
+	</form>
+
+	<div>
+		<ul>
+			<li>{{ noDuplicates }}</li>
+		</ul>
+	</div>
 </div>
