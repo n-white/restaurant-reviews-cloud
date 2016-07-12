@@ -57,7 +57,7 @@ angular.module('reviewCloudApp.reviewCloud', ['reviewCloudApp.searchPlaces'])
 
 	    var color = d3.scale.linear()
 	            .domain([100, 20, 15, 10, 6, 5, 4, 3, 2, 1, 0])
-	            .range(["#676767", "#676767", "#676767", "#676767", "#0099ff", "#00ffcc", "#99ff33", "#ccff33", "#ffcc00", "#ff9933", "#ff3300", "#ff0000"]);
+	            .range(["#676767", "#676767", "#676767", "#676767", "#ff9933", "#ff9933", "#ff9933", "#ff3300", "#ff3300", "#ff3300", "#ff3300", "#ff0000"]);
 
 	    d3.layout.cloud().size([800, 300])
 	            .words(frequency_list)
@@ -105,7 +105,7 @@ angular.module('reviewCloudApp.reviewCloud', ['reviewCloudApp.searchPlaces'])
 		'around​','among​','and​','that​','but​','or​','as​','if​','when​','than​','because​','while​','where​','after​','so​','though​','since​','until​',
 		'whether​','before​','although​','nor​','like​','once​','unless​','now​','two​','first​','last​','three​','next​','million​','four​','five​','second​',
 		'six​','third​','billion​','hundred​','thousand​','seven​','eight​','ten​','nine​','dozen​','fourth​','twenty​','fifth​','thirty​','yes','oh','yeah',
-		'no','hey','hi','hello','ah']
+		'no','hey','hi','hello','ah','extremely','with']
 
 		
 

@@ -4,7 +4,9 @@ var bluebird = require('bluebird');
 var _ = require('underscore');
 var apiKey = require('../apiKey')
 
-var options = 'location=-33.8670522,151.1957362&radius=500&type=restaurant&name='
+
+var holder = '-33.8670522,151.1957362'
+var options = 'location=37.783693,-122.409020&radius=500&type=restaurant&name='
 var reviewWordsUrl = 'https://maps.googleapis.com/maps/api/place/details/json?placeid='
 var placeSearchUrl = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?'
 
