@@ -30,12 +30,16 @@ angular.module('reviewCloudApp.reviewCloud', [])
 
 		$scope.eliminateDuplicates = function(array) {
 			var newObj = {};
+			var newArray = [];
 			for (var i = 0; i < array.length; i++) {
 				if ($scope.indexOf($scope.removeWords, array[i]) === -1 && array[i].length > 3) {
-					newObj[array[i]] = newObj[array[i]] || 0;
-					newObj[array[i]] += 1;
+					newObj[array[i]] = newObj[array[i]] || {'text': array[i], 'size': 0};
+					newObj[array[i]].size += 15;
 				}
 			}
-			return newObj;
+			for (var key in newObj) {
+				newArray.push(newObj[key])
+			}
+			return newArray;
 		}
 	});

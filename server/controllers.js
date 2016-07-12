@@ -4,7 +4,7 @@ var bluebird = require('bluebird');
 var _ = require('underscore');
 var apiKey = require('../apiKey')
 
-var options = 'location=-33.8670522,151.1957362&radius=500&type=restaurant&name='
+var options = 'location=-36.8670522,119.1957362&radius=500&type=restaurant&name='
 var reviewWordsUrl = 'https://maps.googleapis.com/maps/api/place/details/json?placeid='
 var placeSearchUrl = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?'
 
@@ -26,9 +26,11 @@ module.exports = {
 					})
 					newArray = newArray.join(' ').toLowerCase().split(' ')
 					newArray = _.map(newArray, function(item) {
-						return item.replace(/[^a-z]/gi, '')
+						return item.replace(/[^a-z]/gi, ' ')
 					})
 					// console.log(newArray);
+					// newArray = newArray.join(' ');
+					console.log(newArray.join(' '))
 					res.status(200).send(newArray);
 				}
 			})
